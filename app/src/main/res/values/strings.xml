@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ProvaAndroid</string>
+    <string name="title_activity_main">MaxApp</string>
+    <string name="title_dialog_cation">Legendas</string>
+
+
+
+
+    //Buttons
+    <string name="button_text_cation">Legendas</string>
+    <string name="button_text_users">Usuários</string>
+    <string name="button_text_history">Hist. Pedidos</string>
+    <string name="button_text_verify_user_status">Verificar status do cliente</string>
+    <string name="button_text_close">Fechar</string>
+
+
 </resources>
