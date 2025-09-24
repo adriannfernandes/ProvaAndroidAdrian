@@ -83,17 +83,9 @@ fun MaxAppTopBar() {
     )
 
     if (showDialog) {
-        AlertDialog(
-            onDismissRequest = { showDialog = false },
-            title = { Text(stringResource(R.string.title_dialog_cation)) },
-            text = {
-            },
-            confirmButton = {
-                TextButton(onClick = { showDialog = false }) {
-                    Text(stringResource(R.string.button_text_close))
-                }
-            }
-        )
+        LegendDialog {
+            showDialog = false
+        }
     }
 }
 

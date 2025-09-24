@@ -3,6 +3,35 @@
     <string name="title_activity_main">MaxApp</string>
     <string name="title_dialog_cation">Legendas</string>
 
+    //Legend Dialog
+    <string name="order_status_text_dialog">Status do pedido no ERP</string>
+    <string name="review_text_dialog">Crítica</string>
+    <string name="legend_text_dialog">Legendas</string>
+
+    //Orders Status
+    <string name="order_status_text_in_process">Em processamento por parte do FV</string>
+    <string name="order_status_text_refused">Pedido recusado pelo ERP</string>
+    <string name="order_status_text_pending">Posicão no ERP Pendente</string>
+    <string name="order_status_text_block">Posicão no ERP Bloqueado</string>
+    <string name="order_status_text_released">Posicão no ERP Liberado</string>
+    <string name="order_status_text_mounted">Posicão no ERP Montado</string>
+    <string name="order_status_text_invoiced">Posicão no ERP Faturado</string>
+    <string name="order_status_text_canceled">Posicão no ERP Cancelado</string>
+    <string name="order_status_text_budget">Orçamento</string>
+
+    //Reviews
+    <string name="review_text_waiting">Aguardando retorno do ERP</string>
+    <string name="review_text_success">Sucesso</string>
+    <string name="review_text_partial_failure">Falha parcial</string>
+    <string name="review_text_total_failure">Falha total</string>
+
+    //Cations
+    <string name="legend_text_cut">Pedido sofre corte</string>
+    <string name="legend_text_missing">Pedido com falta</string>
+    <string name="legend_text_canceled">Pedido cancelado no ERP</string>
+    <string name="legend_text_return">Pedido com devolução</string>
+    <string name="legend_text_telemarketing">Pedido feito pelo Telemarketing</string>
+
 
 
 
