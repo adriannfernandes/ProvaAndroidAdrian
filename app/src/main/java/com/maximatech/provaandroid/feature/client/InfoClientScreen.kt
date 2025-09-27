@@ -1,14 +1,20 @@
 package com.maximatech.provaandroid.feature.client
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Divider
@@ -23,6 +29,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -36,9 +43,8 @@ import com.maximatech.provaandroid.app.theme.CardBackground
 import com.maximatech.provaandroid.app.theme.ClientLabel
 import com.maximatech.provaandroid.app.theme.ClientRazaoSocial
 import com.maximatech.provaandroid.app.theme.ClientText
-import com.maximatech.provaandroid.app.theme.EmailButton
-import com.maximatech.provaandroid.app.theme.PhoneButton
 import com.maximatech.provaandroid.data.dao.ClientWithContacts
+import com.maximatech.provaandroid.data.entity.ClientEntity
 import com.maximatech.provaandroid.data.entity.ContactEntity
 
 @Composable
@@ -141,12 +147,10 @@ fun InfoClientScreen (viewModel: ClientViewModel = viewModel(), idClient: Int, u
                 }
             }
             CardContactInfo(contacts = selectedClient!!.contacts)
+            Spacer(modifier = Modifier.height(15.dp))
+            VerifyClientStatusBottom(client = selectedClient!!.client, context = LocalContext.current)
         }
     }
-
-
-
-
 }
 
 @Composable
@@ -351,5 +355,26 @@ fun CardContactInfo(contacts: List<ContactEntity>){
             }
         }
 
+    }
+}
+
+@Composable
+fun VerifyClientStatusBottom(context: Context, client: ClientEntity) {
+    Button(
+        onClick = {
+            Toast.makeText(context, client.status, Toast.LENGTH_SHORT).show()
+        },
+        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF2E7D32)),
+        shape = RoundedCornerShape(8.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(45.dp)
+            .padding(horizontal = 20.dp)
+    ) {
+        Text(
+            text = stringResource(R.string.button_text_verify_user_status),
+            color = Color.White,
+            fontSize = 13.sp
+        )
     }
 }

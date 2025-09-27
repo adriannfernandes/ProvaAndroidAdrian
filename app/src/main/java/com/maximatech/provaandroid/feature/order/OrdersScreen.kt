@@ -44,10 +44,6 @@ fun OrdersScreen(viewModel: OrderViewModel = viewModel()){
     val isLoadingOrdersData by viewModel.loadingOrderData.collectAsState()
     val errorMessage by viewModel.errorMessage.collectAsState()
 
-    Log.d("ADRIAN", "Orders: ${orders}")
-
-
-
     val snackbarHostState = remember { SnackbarHostState() }
 
     var searchText by remember { mutableStateOf("") }
