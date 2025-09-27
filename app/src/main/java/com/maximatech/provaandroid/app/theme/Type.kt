@@ -37,7 +37,7 @@ val Typography = Typography(
 
 
 val CustomFontFamily = FontFamily(
-    Font(R.font.oktah, FontWeight.Normal)
+    Font(R.font.zabal, FontWeight.Normal)
 )
 
 val AppTypography = Typography(

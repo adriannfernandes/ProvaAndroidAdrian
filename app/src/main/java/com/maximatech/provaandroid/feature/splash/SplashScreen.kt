@@ -1,4 +1,4 @@
-package com.maximatech.provaandroid.app.presentation.screens
+package com.maximatech.provaandroid.feature.splash
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -12,22 +12,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
 import com.maximatech.provaandroid.R
 import com.maximatech.provaandroid.app.theme.SplashGradientEnd
 import com.maximatech.provaandroid.app.theme.SplashGradientStart
-import com.maximatech.provaandroid.app.navigation.Screen
 import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(
-    navController: NavController
+    onSplashTimeout: () -> Unit
 ) {
     LaunchedEffect(Unit) {
         delay(3000)
-        navController.navigate(Screen.Home.route) {
-            popUpTo(Screen.Splash.route) { inclusive = true }
-        }
+        onSplashTimeout()
     }
 
 
@@ -51,9 +47,3 @@ fun SplashScreen(
         )
     }
 }
-
-//@Preview(showBackground = true, showSystemUi = true)
-//@Composable
-//fun MeuComponentePreview() {
-//    SplashScreen()
-//}

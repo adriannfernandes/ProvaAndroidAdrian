@@ -25,13 +25,47 @@
     <string name="review_text_partial_failure">Falha parcial</string>
     <string name="review_text_total_failure">Falha total</string>
 
-    //Cations
+    //Legend
     <string name="legend_text_cut">Pedido sofre corte</string>
     <string name="legend_text_missing">Pedido com falta</string>
     <string name="legend_text_canceled">Pedido cancelado no ERP</string>
     <string name="legend_text_return">Pedido com devolução</string>
     <string name="legend_text_telemarketing">Pedido feito pelo Telemarketing</string>
 
+    //Info Client Screen
+    <string name="title_text_data_client">Dados do Cliente</string>
+    <string name="title_text_contact">Contatos</string>
+    <string name="label_text_cpf_client">CPF:</string>
+    <string name="label_text_cnpj_client">CNPJ:</string>
+    <string name="label_text_ramo_client">Ramo da atividade:</string>
+    <string name="label_text_address_client">Endereços:</string>
+
+
+    <string name="label_text_phone_contact">Telefone:</string>
+    <string name="label_text_cellphone_contact">Celular:</string>
+    <string name="label_text_spouse_contact">Cônjuge:</string>
+    <string name="label_text_type_contact">Tipo:</string>
+    <string name="label_text_club_contact">Time:</string>
+    <string name="label_text_hobbies_contact">Hobbies:</string>
+    <string name="label_text_email_contact">Email:</string>
+    <string name="label_text_birthday_contact">Data Nasc.:</string>
+    <string name="label_text_spouse_birthday_contact">Data Nasc. Cônjuge:</string>
+    <string name="label_text_not_informed">Não informado</string>
+
+    //Clients Screen
+    <string name="text_searching_clients">Carregando clientes…</string>
+    <string name="text_not_found_clients">Nenhum cliente encontrado</string>
+
+
+
+    //Orders Screen
+    <string name="label_text_ped_rca_erp_order">Nº Ped. RCA/ERP:</string>
+    <string name="label_text_orc_rca_erp_order">Nº Orca. RCA/ERP:</string>
+    <string name="label_text_client_order">Cliente:</string>
+    <string name="label_text_review_order">Crítica:</string>
+    <string name="place_hold_text_filter_order">Filtrar por número do pedido:</string>
+    <string name="text_searching_orders">Carregando pedidos…</string>
+    <string name="text_not_found_orders">Nenhum pedidos encontrado</string>
 
 
 

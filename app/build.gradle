@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    id("kotlin-kapt")
 }
 
 android {
@@ -37,6 +38,22 @@ android {
 }
 
 dependencies {
+
+    // Retrofit + OkHttp + Gson
+    implementation(libs.retrofit.v2110)
+    implementation(libs.retrofit2.converter.gson)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor.v4120)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation libs.androidx.compose.runtime.livedata
+    implementation libs.androidx.work.runtime.ktx
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
+    // Lifecycle (para ViewModel/Flow)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)

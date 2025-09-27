@@ -31,6 +31,16 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Dialog
 import com.maximatech.provaandroid.R
 import com.maximatech.provaandroid.app.theme.LegendTelemarketing
+import com.maximatech.provaandroid.app.theme.OrderAssembled
+import com.maximatech.provaandroid.app.theme.OrderBlocked
+import com.maximatech.provaandroid.app.theme.OrderCanceled
+import com.maximatech.provaandroid.app.theme.OrderInvoiced
+import com.maximatech.provaandroid.app.theme.OrderPending
+import com.maximatech.provaandroid.app.theme.OrderProcessing
+import com.maximatech.provaandroid.app.theme.OrderQuote
+import com.maximatech.provaandroid.app.theme.OrderRejected
+import com.maximatech.provaandroid.app.theme.OrderReleased
+import com.maximatech.provaandroid.app.theme.OrderText
 import com.maximatech.provaandroid.core.enums.LegendStatus
 import com.maximatech.provaandroid.core.enums.OrderStatus
 import com.maximatech.provaandroid.core.enums.ReviewStatus
@@ -54,47 +64,47 @@ fun LegendDialog(
                 Text(
                     text = stringResource(R.string.title_dialog_cation),
                     style = MaterialTheme.typography.headlineLarge,
-                    color = Color.Black,
+                    color = OrderText,
                     fontSize = 20.sp,
                     fontWeight = FontWeight.Bold
                 )
 
-                Spacer(modifier = Modifier.height(13.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
                     text = stringResource(R.string.order_status_text_dialog),
                     style = MaterialTheme.typography.labelMedium,
-                    color = Color.Black
+                    color = OrderText
                 )
                 Spacer(modifier = Modifier.height(5.dp))
-                LegendItem("...", OrderStatus.IN_PROCESS.description, Color.Gray)
-                LegendItem("!", OrderStatus.REFUSED.description, Color(0xFFFF9800))
-                LegendItem("P", OrderStatus.PENDING.description, Color.Gray)
-                LegendItem("B", OrderStatus.BLOCK.description, Color(0xFF2196F3))
-                LegendItem("L", OrderStatus.RELEASED.description, Color(0xFF03A9F4))
-                LegendItem("M", OrderStatus.MOUNTED.description, Color(0xFF8BC34A))
-                LegendItem("F", OrderStatus.INVOICED.description, Color(0xFF4CAF50))
-                LegendItem("C", OrderStatus.CANCELED.description, Color(0xFFF44336))
-                LegendItem("O", OrderStatus.BUDGET.description, Color.Black)
+                LegendItem("...", OrderStatus.EM_PROCESSAMENTO.description, OrderProcessing)
+                LegendItem("!", OrderStatus.RECUSADO.description, OrderRejected)
+                LegendItem("P", OrderStatus.PENDENTE.description, OrderPending)
+                LegendItem("B", OrderStatus.BLOQUEADO.description, OrderBlocked)
+                LegendItem("L", OrderStatus.LIBERADO.description, OrderReleased)
+                LegendItem("M", OrderStatus.MONTADO.description, OrderAssembled)
+                LegendItem("F", OrderStatus.FATURADO.description,OrderInvoiced)
+                LegendItem("C", OrderStatus.CANCELADO.description, OrderCanceled)
+                LegendItem("O", OrderStatus.ORCAMENTO.description, OrderQuote)
 
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
                     text = stringResource(R.string.review_text_dialog),
                     style = MaterialTheme.typography.labelMedium,
-                    color = Color.Black
+                    color = OrderText
                 )
                 Spacer(modifier = Modifier.height(5.dp))
                 GroupLegendItems(items = ReviewStatus.entries.toTypedArray(), iconProvider = {it.icon}, descriptionProvider = {it.description})
-                Spacer(modifier = Modifier.height(10.dp))
+                Spacer(modifier = Modifier.height(8.dp))
 
                 Text(
                     text = stringResource(R.string.legend_text_dialog),
                     style = MaterialTheme.typography.labelMedium,
-                    color = Color.Black
+                    color = OrderText
                 )
                 Spacer(modifier = Modifier.height(5.dp))
-                GroupLegendItems(items = LegendStatus.entries.toTypedArray(), iconProvider = {it.icon}, descriptionProvider = {it.description})
+                GroupLegendItems(items = LegendStatus.entries.toTypedArray(), iconProvider = {it.icon!!}, descriptionProvider = {it.description!!})
                 Spacer(modifier = Modifier.height(15.dp))
 
                 Text(
@@ -135,8 +145,6 @@ fun LegendItem(symbol: String, description: String, color: Color) {
                 Text(
                     text = symbol,
                     color = Color.White,
-                    fontFamily = if (symbol == "!") FontFamily.Default else null,
-                    style = MaterialTheme.typography.labelMedium,
                     fontWeight = FontWeight.Bold
                 )
             }
@@ -145,7 +153,7 @@ fun LegendItem(symbol: String, description: String, color: Color) {
         Text(
             text = description,
             style = MaterialTheme.typography.labelMedium,
-            color = Color.Black
+            color = OrderText
         )
     }
 }
@@ -169,7 +177,7 @@ fun <T> GroupLegendItems(
             Text(
                 text = stringResource(id = descriptionProvider(item)),
                 style = MaterialTheme.typography.labelMedium,
-                color = Color.Black
+                color = OrderText
             )
         }
         Spacer(Modifier.height(3.dp))
