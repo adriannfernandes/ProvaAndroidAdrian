@@ -6,7 +6,9 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.annotation.RequiresApi
+import androidx.work.Constraints
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.maximatech.provaandroid.app.navigation.AppNavigation
@@ -29,14 +31,19 @@ class MainActivity : ComponentActivity() {
 }
 
 private fun startSyncWorker(context: Context) {
-    val periodicRequest = PeriodicWorkRequestBuilder<SyncWorker>(
-        15, TimeUnit.MINUTES
-    ).build()
+
+    val constraints = Constraints.Builder()
+        .setRequiredNetworkType(NetworkType.CONNECTED)
+        .build()
+
+    val workRequest = PeriodicWorkRequestBuilder<SyncWorker>(15, TimeUnit.MINUTES)
+        .setConstraints(constraints)
+        .build()
 
     WorkManager.getInstance(context)
         .enqueueUniquePeriodicWork(
             "SyncWorker",
             ExistingPeriodicWorkPolicy.KEEP,
-            periodicRequest
+            workRequest
         )
 }
